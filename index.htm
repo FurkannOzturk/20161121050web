@@ -19,7 +19,7 @@
                 <label>Ürün</label>
                 <input type="text" id="txtUrun" class="form-control">
                 <label>Adet</label>
-                <input type="text" id="txtAdet" name="quantity" id="quantity" class="form-control">&nbsp;<span id="Adet"></span>
+                <input type="text" id="txtAdet" class="form-control"><span id="Adet"></span>
                 <br>
                 <button id="btnKaydet" class="btn btn-primary">Kaydet</button>
                 <hr>
@@ -42,14 +42,14 @@
     </div>
     <script src="js/jquery-3.2.1.js"></script>
     <script>
-        $(document).ready(function ()
-        $("#quantity").keypress(function (e) {
-        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+$(document).ready(function () {
+  $("#txtAdet").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
         $("#Adet").html("Sadece Sayı Giriniz").show().fadeOut("slow");
                return false;
                 }
             });
-        });
+    });
         $(function() {
             $("#btnKaydet").click(function() {
 
