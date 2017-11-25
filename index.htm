@@ -42,11 +42,15 @@
     </div>
     <script src="js/jquery-3.2.1.js"></script>
     <script>
-$(document).ready(function () {
-  $("#txtAdet").keypress(function (e) {
-     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-        $("#Adet").html("Sadece Sayı Giriniz").show().fadeOut("slow");
-               return false;
+        $(document).ready(function () {
+            $("#txtAdet").keypress(function (e) {
+                if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                    $("#sonuc").fadeIn(1000);
+                    $("#Adet").html("Sadece Sayı Giriniz");
+                    $("#sonuc").removeClass();
+                    $("#sonuc").addClass("alert alert-danger");
+                    $("#sonuc").fadeOut(3000);
+                    return false;
                 }
             });
     });
