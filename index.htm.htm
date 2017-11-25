@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container" style="margin-top:150px;">
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Ürün Ekle</h1>
+                <label>Adı Soyadı</label>
+                <input type="text" id="txtAdsoyad" class="form-control">
+                <label>Ürün</label>
+                <input type="text" id="txtUrun" class="form-control">
+                <label>Adet</label>
+                <input type="text" id="txtAdet" class="form-control">
+                <br>
+                <button id="btnKaydet" class="btn btn-primary">Kaydet</button>
+                <hr>
+                <div id="sonuc"></div>
+
+            </div>
+            <div class="col-md-8">
+                <h1>Ürünler</h1>
+                <table class="table table-hover" id="tbÜrünler">
+                    <tr class="bg-info">
+
+                        <td>Adı Soyadı</td>
+                        <td>Ürün</td>
+                        <td>Adet</td>
+                        <td>Sil</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        $(function() {
+            $("#btnKaydet").click(function() {
+
+                var adsoyad = $("#txtAdsoyad").val();
+                var ürün = $("#txtUrun").val();
+                var adet = $("#txtAdet").val();
+
+                if (adsoyad == "" || ürün == "" || adet == "") {
+                    $("#sonuc").fadeIn(1000);
+                    $("#sonuc").html("Lütfen Tüm Alanları Doldurunuz!");
+                    $("#sonuc").removeClass();
+                    $("#sonuc").addClass("alert alert-danger");
+                    $("#sonuc").fadeOut(3000);
+                    return false;
+                }
+
+                $("#tbÜrünler").append("<tr><td>" + adsoyad + "</td><td>" + ürün + "</td><td>" + adet + "</td><td><button class='btn btn-danger sil'>Sil</button></td></tr>");
+            });
+
+            $(document).on("click", ".sil", function() {
+                var satir = $(this).closest("tr");
+                satir.remove();
+
+            });
+        });
+    </script>
+</body>
+
+</html>
